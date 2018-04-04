@@ -15,7 +15,7 @@ class ArtistsController < ApplicationController
   #   end
   # end
   def new
-    # binding.pry
+    binding.pry
     if params[:allow_create_artists] == false
       redirect_to artists_path
     else
@@ -59,6 +59,6 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name)
+    params.require(:artist).permit(:name, :allow_create_artists)
   end
 end
