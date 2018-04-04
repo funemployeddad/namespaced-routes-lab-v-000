@@ -7,8 +7,20 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  # describe "GET new" do
+  #   it "redirects when access is turned off" do
+  #     p = Preference.create(allow_create_artists: false)
+  #     get :new
+  #     expect(response).to redirect_to artists_path
+  #   end
+  # end
   def new
-    @artist = Artist.new
+    # binding.pry
+    if params[:allow_create_artists] == false
+      redirect_to artists_path
+    else
+      @artist = Artist.new
+    end
   end
 
   def create

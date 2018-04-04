@@ -24,6 +24,13 @@ class SongsController < ApplicationController
     end
   end
 
+  # describe "GET new" do
+  #   it "redirects when access is turned off" do
+  #     p = Preference.create(allow_create_songs: false)
+  #     get :new
+  #     expect(response).to redirect_to songs_path
+  #   end
+  # end
   def new
     @song = Song.new
   end
@@ -67,4 +74,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :artist_name)
   end
 end
-
